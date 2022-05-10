@@ -10,6 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import status
 from rest_framework.permissions import AllowAny
 
+from rest_framework_simplejwt.tokens import RefreshToken
 from django_otp import user_has_device
 
 from user_accounts.api.serializers import UserLoginSerializer
@@ -217,3 +218,40 @@ class LogoutHandlerView(views.APIView):
             status_code = status.HTTP_400_BAD_REQUEST
 
         return Response(response, status=status_code)
+
+
+class TokenRefreshView(views.APIView):
+    """
+    Takes a refresh type JSON web token and returns an access type JSON web
+    token if the refresh token is valid.
+
+    New - Reads JWT refresh token from cookie, gives JWT
+    access token from it in a response body
+    """
+
+    permission_classes = (AllowAny,)
+
+    def post(self, request):
+
+        refresh_token = request.COOKIES.get('refresh-token')
+
+        if refresh_token is None:
+            return Response(
+                {'success': 'False', 'message': 'Invalid Request'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            refresh_token = RefreshToken(refresh_token)
+            print(refresh_token)
+        except Exception as e:
+            print(e)
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(
+            {
+                'success': 'True',
+                'message': 'Token refreshed successfully',
+                'token': refresh_token.access_token.token,
+            }, status=status.HTTP_200_OK,
+        )

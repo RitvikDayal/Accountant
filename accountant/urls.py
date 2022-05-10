@@ -6,6 +6,7 @@ from accountant.settings import DEBUG
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('user_accounts.urls')),
+    path('ledger/', include('account_ledger.urls')),
 ]
 
 if DEBUG:

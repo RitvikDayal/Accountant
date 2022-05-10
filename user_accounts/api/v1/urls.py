@@ -7,6 +7,7 @@ from .views import (
     TOTPClientDeleteView,
     TOTPVerifyView,
     LogoutHandlerView,
+    TokenRefreshView,
 )
 
 
@@ -18,4 +19,5 @@ urlpatterns = [
         '2fa/verify/<int:token>', TOTPVerifyView.as_view(), name='totp_verify',
     ),
     path('logout/', LogoutHandlerView.as_view(), name='logout'),
+    path('refresh-token/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

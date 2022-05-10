@@ -50,6 +50,7 @@ UTILITY = [
 ACCOUNTANT_APPS = [
     'accountant',
     'user_accounts',
+    'account_ledger',
 
     'utils',
 ]
