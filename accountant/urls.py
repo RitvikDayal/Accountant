@@ -5,6 +5,11 @@ from accountant.settings import DEBUG
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # UI-Interface
+    path('', include('interface.urls')),
+
+    # API Backend
     path('users/', include('user_accounts.urls')),
     path('ledger/', include('account_ledger.urls')),
 ]

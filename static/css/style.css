@@ -1,0 +1,52 @@
+/**********************************************/
+/*  Style Sheet for the theme of the website. */
+/**********************************************/
+
+/*
+Fonts for the website.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=PT+Serif&display=swap');
+
+html {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 25px;
+}
+
+
+/*****************/
+/** CUSTOM CSS **/
+/*****************/
+
+.screen-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gray-bg-container {
+    background-color: #f5f5f5;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: 300;
+    margin-bottom: 25px;
+    color: #333;
+    font-family: 'Cantata One', serif;
+    font-family: 'PT Serif', serif;
+}
