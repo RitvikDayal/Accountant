@@ -21,7 +21,7 @@ html {
 
 body {
     margin: 0;
-    padding: 25px;
+    padding: 8px;
 }
 
 
@@ -45,7 +45,6 @@ body {
 .title {
     font-size: 50px;
     font-weight: 300;
-    margin-bottom: 25px;
     color: #333;
     font-family: 'Cantata One', serif;
     font-family: 'PT Serif', serif;
